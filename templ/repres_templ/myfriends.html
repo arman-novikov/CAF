@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% extends "repres_templ/base.html" %}
+{% block myfriends %}
+
+<script type="text/javascript" src="/static/frse.js"> </script>
+{% csrf_token %}
+
+	
+	<a href="/searchfriends"> find new friends </a><br>
+	<p> new proposals: </p>
+			<table border="0">
+			{% for idc, name in myfriends_pro %}
+			<tr>
+				<td>
+					<a href=/{{idc}}> {{name}} </a>
+				</td>
+				<td>
+					<div class="accept">
+							<button type="submit"  name="accept" value="{{idc}}">
+										accept
+							</button>
+					</div>
+				</td>
+				<td>
+					<div class="refuse">
+						<button type="submit"  name="refuse" value="{{idc}}">
+									refuse
+						</button>
+					</div>
+				</td>
+			</tr>
+			{% endfor %}
+			</table>	
+
+
+	<p> my friends: </p>
+			<table border="0">
+			{% for idc, name in myfriends %}
+				<tr>
+					<td>
+						<a href="/{{idc}}"> {{name}} </a> 
+					</td>
+					<td>
+						<button type="submit" formaction="% url 'writemessage' %}" name="message" value="{{idc}}">
+							send a meesage
+						</button>
+					</td>
+					<td>
+						<button type="submit" formaction="% url 'sendzaruba' %}" name="sendzaruba" value="{{idc}}">
+							send a zaruba
+						</button>
+					</td>
+					<td>
+						<div class="delete">
+							<button type="submit"  name="delete_friend" value="{{idc}}">
+									delete from friends
+							</button>
+						</div>
+					</td>
+						
+				</tr>
+			{% endfor %}
+			</table>
+
+		<p> my proposals: </p>
+			<table border="0">
+			{% for idc, name in myfriends_req %}
+			<tr>
+				<td>
+					<a href=/{{idc}}> {{name}} </a>
+				</td>
+					<td>
+						<div class="cancel">
+							<button type="submit"  name="cancel" value="{{idc}}">
+									cancel
+							</button>
+						</div>
+					</td>
+			</tr>
+			{% endfor %}
+			</table>	
+{% endblock %}

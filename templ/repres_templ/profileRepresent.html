@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% extends "repres_templ/base.html" %}
+{% block profile %}
+	<link href="/static/css/Zprofile.css" rel="stylesheet">
+	<h1 class="visually-hidden">Профиль пользователя</h1>
+	<section>
+		<div class="profile-title-else forBlur">
+			<h2 class="visually-hidden">Мой профайл</h2>
+		</div>
+		<div class="container profile-information" >
+			<img src="/img/foto.png forBlur" class="profile-foto" alt="Фото" width="209" height="258">
+			<div class="information forBlur">
+				<p>
+					{{first_name}} {{last_name}}
+				</p>
+				<ul class="information-list">
+					<li class="information-item">{{sex}}</li>
+					<li class="information-item">Was born {{birth_day}} {{birth_month}} {{birth_year}}</li>
+					<li class="information-item">{{country}}, {{city}}</li>
+					<li class="information-item">Engaged in {{sport}}</li>
+					<li class="information-item">PosOfTrains</li>
+				</ul>
+			</div>
+			<div class="else-menu">
+				<p class="button profile-user-numerator-else forBlur">
+					{{score}}
+				</p>
+				<ul class="else-menu-list">
+					<li class="else-menu-item forBlur">добавить в друзья</li>
+					<li class="else-menu-item forBlur">встретиься</li>
+					<li class="else-menu-item forBlur">участие</li>
+					<li class="else-menu-item" onclick="more_show_ctrl()">еще
+						<ul class="else-menu-more" id="moreID">
+							<li class="menu-more-item">группы</li>
+							<li class="menu-more-item">друзья</li>
+							<li class="menu-more-item">видео</li>
+							<li class="menu-more-item">фото</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="container equipment forBlur">
+			<ul class="equipment-list">
+				<li class="equipment-item">
+					<a href="#">Uses <br> {{equipments}}</a>
+				</li>
+				<li class="equipment-item">
+					<a href="#">Wears <br> {{wearing}}</a>
+				</li>
+				<li class="equipment-item">
+					<a href="#">Wears <br> {{boots}}</a>
+				</li>
+				<li class="equipment-item">
+					<a href="#">Prefers <br> {{sportnutr}}</a>
+				</li>
+			</ul>
+		</div>
+	</section>
+{% endblock %}

@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+
+<head>
+	<title>имя сайта</title>
+	<meta charset="utf-8">
+	<meta name="keywords" content="">
+	<meta name="description" content="краткое описание">
+	<link href="/static/base/normalize.css" rel="stylesheet">
+	<link href="/static/base/base.css" rel="stylesheet">
+	<script type="text/javascript" src="/static/jQuery321.js"></script>
+	<script>
+		function main_navigation_show_ctrl() {
+			var menu = document.getElementById("main-navigationID");
+
+			if (menu.style.visibility == "visible"){
+				menu.style.visibility = "hidden";
+				$('main').css("filter","blur(0px)");
+			}
+			else {
+				menu.style.visibility = "visible";
+				$('main').css("filter","blur(3px)");
+			}
+		}
+	</script>
+</head>
+
+<body class="page-wrapper">
+	<!-- ЛЕВАЯ КОЛОНКА -->
+	<aside class="left-sidebar">
+		<nav class="main-menu">
+			<!-- на главноей странице логоне не является ссылкой -->
+			<img src="/static/base/logo.png" width="81" height="75" alt="Логотип">
+			<!-- *** заготовка для других страниц, логотип является ссылкой на главную ***
+			<a href="index.html">
+				<img src="/static/img/logo.png" width="119" height="109" alt="Логотип">
+			</a>	
+			-->
+			{% if menurep %}
+			<div class="page-navigation" id="page-navigationID">
+				<div onclick="main_navigation_show_ctrl()">
+					<a href="#" class="page-navigation-visible">
+						<img src="/static/base/menu.png" width="81" height="75" alt="Навигация">
+					</a>
+				</div>
+				<ul class="main-navigation" id="main-navigationID">
+					<li class="main-navigation-item">
+						<a href="#">кружки по интересам</a>
+					</li>
+					<li class="main-navigation-item">
+						<a href="#">новости</a>
+					</li>
+					<li class="main-navigation-item">
+						<a href="#">друзья</a>
+					</li>
+					<li class="main-navigation-item">
+						<a href="#">видео</a>
+					</li>
+					<li class="main-navigation-item">
+						<a href="#">группы</a>
+					</li>
+					<li class="main-navigation-item">
+						<a href="#">краски</a>
+					</li>
+					<li class="main-navigation-item">
+						<a href="#">фотографии</a>
+					</li>
+				</ul>
+			</div>
+			{% endif %}
+		</nav>
+	</aside>
+
+	<!-- КОНТЕНТ -->
+	<main class="main-content">
+		{% block profile %}				{% endblock %}
+		{% block myprofile %}			{% endblock %}
+
+		{% block myfriends %}			{% endblock %}
+		{% block searchfriends %}		{% endblock %}
+		{% block advsearchfriends %}	{% endblock %}
+		{% block blank %}				{% endblock %}
+		{% block myimages %}			{% endblock %}
+		{% block userimages %}			{% endblock %}
+		{% block train %}				{% endblock %}
+		{% block mygroups %}			{% endblock %}
+		{% block groupcreate %} 		{% endblock %}
+		{% block grouprepresent %}	   	{% endblock %}
+		{% block showgroups %}	   		{% endblock %}
+		{% block searchgroups %}	   	{% endblock %}
+	</main>
+
+	<!-- ПРАВАЯ КОЛОНКА -->
+	{% if menurep %}
+	<aside class="right-sidebar">
+		<!-- заготовка *** возможно меню пользователя будет содержать дополнительный пункты ***
+		<nav class="user-navigation">
+			<li class="user-navigation-item">
+				<a href="#">Личный кабинет</a>
+			</li>
+		</nav>
+		 -->
+		 <a href="/logout">
+			<button type="button" class="button button-user-navigation-exit">Выход</button>
+		</a>
+	</aside>
+	{% endif %}
+	<script src="#"></script>
+
+</body>
+
+</html>

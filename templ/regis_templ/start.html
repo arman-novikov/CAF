@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CAF</title>
+    <link rel="stylesheet" href="/static/start/start.css">
+</head>
+<body>
+    <content>
+        <div class="container top-40">
+            <div class="logo">
+                <img id="logo" src="/static/start/logo.png">
+            </div>
+            <div class="hf">
+                <img id="hifriend" src="/static/start/hifriend.png">
+            </div>
+        </div>
+        <div class="container">
+            <div class='box'>
+            <form method="post" action="/register/">{% csrf_token %}
+                <h2>новичек?</h2>
+                <div class="form">
+                        {% for er in regerl %}
+                            <li>{{er}}</li>
+                        {% endfor %}
+                        <div class='form-item'>
+                            <div class="index">логин</div>
+                            {{regisform.username}}
+                        </div>
+                        <div class='form-item'>
+                            <div class="index">email</div>
+                            {{regisform.email}}
+                        </div>
+                        <div class='form-item'>
+                            <div class="index">пароль</div>
+                            {{regisform.password1}}
+                        </div>
+                        <div class='form-item'>
+                            <div class="index">пароль еще раз</div>
+                            {{regisform.password2}}
+                        </div>
+                </div>
+                <input type="submit" name="submit" value="регистрация">
+                </form>
+            </div>
+            <div class='box'>
+            <form method="post" action="/check/">{% csrf_token %}
+                <h2>в теме?</h2>
+                <div class="form">
+                    {% for er in logerl %}
+                            <li>{{er}}</li>
+                        {% endfor %}
+                    <div class='form-item'>
+                        <div class="index">логин</div>
+                        {{loginform.username}}
+                    </div>
+                    <div class='form-item'>
+                        <div class="index">пароль</div>
+                        {{loginform.password}}
+                    </div>
+                </div>
+                <input type="submit" name="submit" value="вход">
+                </form>
+            </div>
+        </div>
+
+            <script>
+            
+                let blocks = document.getElementsByClassName('form');
+                for (var i = 0; i < blocks.length; i++) {
+                    let h = document.getElementsByClassName('form')[i].offsetHeight.toString() + 'px';
+                    let w = document.getElementsByClassName('form')[i].offsetWidth.toString() + 'px';
+                    document.getElementsByClassName('form')[i].style.left = '0';
+                    document.getElementsByClassName('form')[i].style.right = '0';
+                    document.getElementsByClassName('form')[i].style.bottom = '0';
+                    document.getElementsByClassName('form')[i].style.top = '0';
+                    document.getElementsByClassName('form')[i].style.margin = 'auto';
+                    document.getElementsByClassName('form')[i].style.position = 'absolute';
+                    document.getElementsByClassName('form')[i].style.height = h;
+                    document.getElementsByClassName('form')[i].style.width = '302px';
+                }
+                
+            </script>
+        
+    </content>
+    <footer>
+        <div class="container">
+            <div class="footer-list">
+                <ul>
+                    <li>
+                        <a href="http://">CORPORATION & 2017</a>
+                    </li>
+                    <li>
+                        <a href="http://">О КОМПАНИИ</a>
+                    </li>
+                    <li>
+                        <a href="http://">ПРАВИЛА</a>
+                    </li>
+                    <li>
+                        <a href="http://">РЕКЛАМА</a>
+                    </li>
+                    <li>
+                        <a href="http://">РАЗРАБОТЧИКИ</a>
+                    </li>
+                    <div class="lang">
+                        <li>ЯЗЫК </li>
+                        <li>
+                            <a href="http://">РУССКИЙ</a>
+                        </li>
+                        <li>
+                            <a href="http://">ENGLISH</a>
+                        </li>
+                        <li>
+                            <a href="http://">ВСЕ ЯЗЫКИ</a>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

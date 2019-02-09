@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+{% extends "repres_templ/base.html" %}
+{% block blank %}
+    <script type="text/javascript" src="/static/regblank.js">  </script>
+    <h1 class="visually-hidden">Информация о себе</h1>
+        <form action="/success/" method="POST" class="aboutme-form" id="formID"> {% csrf_token %}
+        <fieldset class="aboutme-field">
+            <legend>Информация о себе</legend>
+
+            <label for="first_name">Имя
+                <tr>
+                    <td>
+                        <input type="text" id="first_nameID" name="first_name"  value="{{first_name}}" required autofocus onchange="checkField(this.value, document.getElementById('fNameError'))">
+                    </td>
+                    <td>
+                        <div class="aligin"><p id="fNameError"></p></div></td>
+                    </td>
+                </tr>
+            </label>
+
+            <label for="last_name">фамилия
+                <tr>
+                    <td>
+                        <input type="text" id="last_nameID" name="last_name" required value="{{last_name}}" <input type="text" value="" onchange="checkField(this.value, document.getElementById('lNameError'))">
+                    </td>
+                    <td>
+                        <div class="aligin"><p id="lNameError"></p></div>
+                    </td>
+                </tr>
+            </label>
+
+            <label for="sex">пол
+                <select name="sex" id="sexID" class="sex" required>
+                    <option disabled selected>{{ sex }}</option>
+                    <option value="male">мужчина</option>
+                    <option value="female">женщина</option>
+                </select>
+            </label>              
+            <label for="day">дата рождения
+                    <select name="day" id="dayID" class="day" required>
+                        <option disabled selected value="{{day}}">{{day}}</option>
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="22">21</option>
+                        <option value="23">22</option>
+                        <option value="24">23</option>
+                        <option value="25">24</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                    </select>
+                    <select name="month" id="monthID" class="month" required>
+                        <option disabled selected value="{{month}}">{{month}}</option>
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                    <select name="year" id="yearID" class="year" required>
+                        <option disabled selected value="{{year}}">{{year}}</option>
+                        <option value="1990">1990</option>
+                        <option value="1991">1991</option>
+                        <option value="1992">1992</option>
+                        <option value="1993">1993</option>
+                        <option value="1994">1994</option>
+                        <option value="1995">1995</option>
+                        <option value="1996">1996</option>
+                        <option value="1997">1997</option>
+                        <option value="1998">1998</option>
+                        <option value="1999">1999</option>
+                        <option value="2000">2000</option>
+                        <option value="2001">2001</option>
+                        <option value="2002">2002</option>
+                        <option value="2003">2003</option>
+                        <option value="2004">2004</option>
+                        <option value="2005">2005</option>  
+
+                    </select>
+            </label>            
+
+            <label for="country">страна
+                <select name="country" id="countryID" class="country">
+                    <option disabled selected value="{{country}}">{{country}}</option>
+                    <option value="Angola">Angola</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="Aruba">Aruba</option>
+                    <option value="Australia">Australia</option>
+                    <option value="Austria">Austria</option>
+                    <option value="Azerbaijan">Azerbaijan</option>
+                    <option value="Bahamas">Bahamas</option>
+                    <option value="Bahrain">Bahrain</option>
+                    <option value="Belgium">Belgium</option>
+                    <option value="Benin">Benin</option>
+                    <option value="Bolivia">Bolivia</option>
+                    <option value="Bonaire">Bonaire</option>
+                    <option value="Bosnia-Herzegovina">Bosnia-Herzegovina</option>
+                    <option value="Botswana">Botswana</option>
+                    <option value="Brazil">Brazil</option>
+                    <option value="Brunei">Brunei</option>
+                    <option value="Bulgaria">Bulgaria</option>
+                    <option value="Cambodia">Cambodia</option>
+                    <option value="Cameroon">Cameroon</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Chile">Chile</option>
+                    <option value="China">China</option>
+                    <option value="Colombia">Colombia</option>
+                    <option value="Costa Rica">Costa Rica</option>
+                    <option value="Croatia">Croatia</option>
+                    <option value="Curacao">Curacao</option>
+                    <option value="Cyprus">Cyprus</option>
+                    <option value="Czech Republic">Czech Republic</option>
+                    <option value="Democratic Republic of Congo">Democratic Republic of Congo</option>
+                    <option value="Denmark">Denmark</option>
+                    <option value="East Africa">East Africa</option>
+                    <option value="Ecuador">Ecuador</option>
+                    <option value="El Salvador">El Salvador</option>
+                    <option value="Estonia">Estonia</option>
+                    <option value="Fiji">Fiji</option>
+                    <option value="Finland">Finland</option>
+                    <option value="France">France</option>
+                    <option value="Gabon">Gabon</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Ghana">Ghana</option>
+                    <option value="Great Britain">Great Britain</option>
+                    <option value="Greece">Greece</option>
+                    <option value="Guadaloupe">Guadaloupe</option>
+                    <option value="Guatemala">Guatemala</option>
+                    <option value="Honduras">Honduras</option>
+                    <option value="Hong Kong">Hong Kong</option>
+                    <option value="Hungary">Hungary</option>
+                    <option value="Iceland">Iceland</option>
+                    <option value="India">India</option>
+                    <option value="Indonesia">Indonesia</option>
+                    <option value="Ireland">Ireland</option>
+                    <option value="Israel">Israel</option>
+                    <option value="Italy">Italy</option>
+                    <option value="Ivory Coast">Ivory Coast</option>
+                    <option value="Japan">Japan</option>
+                    <option value="Kazakhstan">Kazakhstan</option>
+                    <option value="Korea">Korea</option>
+                    <option value="Kosovo">Kosovo</option>
+                    <option value="Kuwait">Kuwait</option>
+                    <option value="Latvia">Latvia</option>
+                    <option value="Lesotho">Lesotho</option>
+                    <option value="Lithuania">Lithuania</option>
+                    <option value="Luxembourg">Luxembourg</option>
+                    <option value="Macau">Macau</option>
+                    <option value="Macedonia">Macedonia</option>
+                    <option value="Malaysia">Malaysia</option>
+                    <option value="Martinique">Martinique</option>
+                    <option value="Mauritania">Mauritania</option>
+                    <option value="Mexico">Mexico</option>
+                    <option value="Moldova">Moldova</option>
+                    <option value="Namibia">Namibia</option>
+                    <option value="Netherlands">Netherlands</option>
+                    <option value="New Zealand">New Zealand</option>
+                    <option value="Nicaragua">Nicaragua</option>
+                    <option value="Nigeria">Nigeria</option>
+                    <option value="Northern Ireland">Northern Ireland</option>
+                    <option value="Norway">Norway</option>
+                    <option value="Panama">Panama</option>
+                    <option value="Paraguay">Paraguay</option>
+                    <option value="Peru">Peru</option>
+                    <option value="Philippines">Philippines</option>
+                    <option value="Poland">Poland</option>
+                    <option value="Portugal">Portugal</option>
+                    <option value="Puerto Rico">Puerto Rico</option>
+                    <option value="Qatar">Qatar</option>
+                    <option value="Republic of Congo">Republic of Congo</option>
+                    <option value="Reunion Islands">Reunion Islands</option>
+                    <option value="Romania">Romania</option>
+                    <option value="Russia">Russia</option>
+                    <option value="Rwanda">Rwanda</option>
+                    <option value="Saba">Saba</option>
+                    <option value="Samoa">Samoa</option>
+                    <option value="Saudi Arabia">Saudi Arabia</option>
+                    <option value="Senegal">Senegal</option>
+                    <option value="Serbia & Montenegro">Serbia & Montenegro</option>
+                    <option value="Singapore">Singapore</option>
+                    <option value="Slovak Republic">Slovak Republic</option>
+                    <option value="Slovenia">Slovenia</option>
+                    <option value="South Africa">South Africa</option>
+                    <option value="Spain">Spain</option>
+                    <option value="St. Eustatius">St. Eustatius</option>
+                    <option value="St. Maarten">St. Maarten</option>
+                    <option value="Suriname">Suriname</option>
+                    <option value="Swaziland">Swaziland</option>
+                    <option value="Sweden">Sweden</option>
+                    <option value="Switzerland">Switzerland</option>
+                    <option value="Taiwan">Taiwan</option>
+                    <option value="Tanzania">Tanzania</option>
+                    <option value="Thailand">Thailand</option>
+                    <option value="Togo">Togo</option>
+                    <option value="Turkey">Turkey</option>
+                    <option value="Uganda">Uganda</option>
+                    <option value="Ukraine">Ukraine</option>
+                    <option value="United Arab Emirates">United Arab Emirates</option>
+                    <option value="United States">United States</option>
+                    <option value="Uruguay">Uruguay</option>
+                    <option value="Venezuela">Venezuela</option>
+                    <option value="Vietnam">Vietnam</option>
+                </select>
+            </label>
+            <label for="city">город
+                <input type="text" id="cityID" value="{{city}}" name="city">
+            </label>
+
+            <label for="sport">Спорт
+                <input type="text" id="sportID" name="sport" value="{{city}}">
+            </label>
+
+            <label for="equipments">Оборудование
+                <input type="text" id="equipmentsID" name="equipments" value="{{equipments}}">
+            </label>
+
+            <label for="boots">Обувь
+                <input type="text" id="bootsID" name="boots" value="{{boots}}">
+            </label>
+
+            <label for="wearing">Одежда
+                    <input type="text" id="wearingID" name="wearing" value="{{wearing}}">
+                </label>
+
+            <label for="sportnutr">СпортПит
+                <input type="text" id="sportnutrID" name="sportnutr" value="{{sportnutr}}">
+            </label>
+
+        </fieldset>
+        <input class="button" type="button" value="save" form="none" onclick= "checkForm()"/>
+    </form>
+{% endblock %}
